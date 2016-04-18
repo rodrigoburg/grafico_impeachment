@@ -16,7 +16,8 @@ function inicializa() {
         //data = dimple.filterData(data, "categoria", "idade")
         var myChart = new dimple.chart(svg, data);
         myChart.setBounds(110, 30, 1900, 700);
-        myChart.addMeasureAxis("y", "governismo");
+        var y = myChart.addMeasureAxis("y", "governismo");
+        y.overrideMin = 30
         var x = myChart.addCategoryAxis("x", "nome_impeachment");
 
         series = myChart.addSeries(["nome_impeachment","posicao"], dimple.plot.bar);
@@ -25,13 +26,14 @@ function inicializa() {
         myChart.assignColor("a favor", cores_default[1],cores_default[1]);
         myChart.assignColor("abstencao", cores_default[2],cores_default[2]);
         myChart.assignColor("ausencia", cores_default[2],cores_default[2]);
+        myChart.assignColor("nao votou", "gray", "gray");
+        myChart.addLegend(10, 10, 1000, 30, "right")
 
 
 
         myChart.draw();
         x.shapes.selectAll("text").remove();
 
-        console.log(data)
 
     });
 }
