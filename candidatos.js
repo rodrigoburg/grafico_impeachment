@@ -2,7 +2,7 @@ var complete_data = null;
 
 function inicializa() {
 
-    var svg = dimple.newSvg("#candidatos", 1400, 1000);
+    var svg = dimple.newSvg("#candidatos", 1900, 1000);
     d3.csv("dados_perfil.csv", function (data) {
         data = dimple.filterData(data, "existe", "TRUE")
         data.forEach(function (d) {
@@ -21,7 +21,7 @@ function inicializa() {
         var x = myChart.addCategoryAxis("x", "nome_impeachment");
 
         series = myChart.addSeries(["nome_impeachment","posicao"], dimple.plot.bar);
-        series.barGap = 0.42;
+        series.barGap = 0.3;
         myChart.assignColor("contra", cores_default[0],cores_default[0]);
         myChart.assignColor("a favor", cores_default[1],cores_default[1]);
         myChart.assignColor("abstencao", cores_default[2],cores_default[2]);
